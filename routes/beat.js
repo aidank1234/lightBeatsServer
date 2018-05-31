@@ -3,7 +3,6 @@ var router = express.Router();
 var http = require('http');
 var url = require('url');
 var util = require('util');
-var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 var bodyParser = require('body-parser')
 
@@ -17,10 +16,12 @@ var beatSchema = mongoose.Schema({
   name: String,
   beatStart: Number,
   beatLengths: [Number],
-  length: Number,
-  songRelationName: String,
+  brightness: [Number],
+  songStartTime: Number,
+  songRelation: Boolean,
   songRelationArtist: String,
-  createdAt: Number
+  songRelationName: String,
+  createdBy: String
 });
 
 var Beat = mongoose.model("Beat", beatSchema);
@@ -37,16 +38,13 @@ router.post('/newBeat', function(req, res) {
         name: req.body["name"],
         beatStart: req.body["beatStart"],
         beatLengths: req.body["beatLengths"],
-        length: -1,
-        songRelationName: req.body["songRelationName"],
+        brightness: req.body["brightness"],
+        songStartTime: req.body["songStartTime"],
+        songRelation: req.body["songRelation"],
         songRelationArtist: req.body["songRelationArtist"],
-        createdAt: Date.now()
+        songRelationName: req.body["songRelationName"],
+        createdBy: req.body["createdBy"]
       });
-      var totalLength = 0;
-      for(var i=0; i<newBeat.beatLengths.length; i++) {
-        totalLength = totalLength + beatLengths[i];
-      }
-      newBeat.length = totalLength;
       newBeat.save(function(error, point) {
         if(error) res.status(500).send(error);
         else res.status(200).send(point);
@@ -55,3 +53,86 @@ router.post('/newBeat', function(req, res) {
 
   });
 });
+
+router.post('/beatByName', function(req, res) {
+  if(!req.body) return res.send(400);
+  jwt.verify(req.body["token"], "secretbeats", function(err, decoded) {
+    if(err){
+        res.send(406);
+        //KICK TO LOGIN
+    }
+    else {
+      Beat.findOne({name: req.body["name"]}, function(error, beat) {
+        if(beat != null) {
+          res.json(beat);
+        }
+        else {
+          res.sendStatus(500);
+        }
+      });
+    }
+  });
+});
+
+router.post('/validateName', function(req, res) {
+  if(!req.body) return res.send(400);
+  jwt.verify(req.body["token"], "secretbeats", function(err, decoded) {
+    if(err){
+        res.send(406);
+        //KICK TO LOGIN
+    }
+    else {
+        Beat.findOne({name: req.body["name"]}, function(error, beat) {
+          if(beat == null) {
+            res.sendStatus(200);
+          }
+          else {
+            res.sendStatus(500);
+          }
+        });
+    }
+  });
+});
+
+router.post('/beatNameQuery', function(req, res) {
+  if(!req.body) return res.send(400);
+  jwt.verify(req.body["token"], "secretbeats", function(err, decoded) {
+    if(err){
+        res.send(406);
+        //KICK TO LOGIN
+    }
+    else {
+      var regexp = new RegExp("^" + req.body["name"])
+      Beat.find({name: regexp}, function (error, beat) {
+          if(error) {
+            res.sendStatus(406);
+          }
+          else {
+            res.json(beat);
+          }
+      });
+    }
+  });
+});
+
+router.post('/beatSongQuery', function(req, res) {
+  if(!req.body) return res.send(400);
+  jwt.verify(req.body["token"], "secretbeats", function(err, decoded) {
+    if(err){
+        res.send(406);
+        //KICK TO LOGIN
+    }
+    else {
+      Beat.find({songRelation: true, songRelationName: req.body["songRelationName"], songRelationArtist: req.body["songRelationArtist"]}, function(error, beats) {
+        if(error) {
+          res.sendStatus(406);
+        }
+        else {
+          var arrayLength = beats.length;
+          res.json({"results": arrayLength});
+        }
+      });
+    }
+  });
+});
+module.exports = router;
