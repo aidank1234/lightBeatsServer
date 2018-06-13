@@ -6,8 +6,8 @@ var util = require('util');
 var jwt = require('jsonwebtoken');
 var bodyParser = require('body-parser')
 
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({extended: true}));
+router.use(bodyParser.json({limit: '50MB', type: 'application/json'}));
+router.use(bodyParser.urlencoded({extended: true, limit: '50mb'}));
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/my_db');
@@ -21,6 +21,8 @@ var beatSchema = mongoose.Schema({
   songRelation: Boolean,
   songRelationArtist: String,
   songRelationName: String,
+  plays: Number,
+  rating: Number,
   createdBy: String
 });
 
@@ -43,6 +45,8 @@ router.post('/newBeat', function(req, res) {
         songRelation: req.body["songRelation"],
         songRelationArtist: req.body["songRelationArtist"],
         songRelationName: req.body["songRelationName"],
+        plays: 0,
+        rating: -1,
         createdBy: req.body["createdBy"]
       });
       newBeat.save(function(error, point) {
@@ -130,6 +134,27 @@ router.post('/beatSongQuery', function(req, res) {
         else {
           var arrayLength = beats.length;
           res.json({"results": arrayLength});
+        }
+      });
+    }
+  });
+});
+
+router.post('/beatsBySong', function(req, res) {
+  if(!req.body) return res.send(400);
+  jwt.verify(req.body["token"], "secretbeats", function(err, decoded) {
+    if(err){
+        res.send(406);
+        //KICK TO LOGIN
+    }
+    else {
+      Beat.find({songRelation: true, songRelationName: req.body["songRelationName"], songRelationArtist: req.body["songRelationArtist"]}, function(error, beats) {
+        if(error) {
+          res.sendStatus(406);
+        }
+        else {
+          var beatNameArray = [];
+          res.json({"results": beats, "amount": beats.length});
         }
       });
     }

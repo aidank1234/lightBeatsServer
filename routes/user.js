@@ -53,6 +53,16 @@ router.post('/createUser', function(req, res){
   });
 });
 
+router.post('/validateUsername', function(req, res) {
+  if(!req.body) return res.send(400);
+  User.findOne({username: req.body["username"]}, function(error, user) {
+    if(user == null) {
+      res.status(200).json({"success": "USER DOESNT EXIST"});
+    }
+    else res.status(401).json({"error": "USER EXISTS"});
+  });
+});
+
 router.post('/signIn', function(req, res){
     if(!req.body) return res.send(400);
     User.findOne({username: req.body["username"]}, function(error, user){
@@ -75,6 +85,7 @@ router.post('/signIn', function(req, res){
                 tokenLong: tokenLong
               });
             }
+            else res.status(406).send({"ERROR": "NO ACCESS"});
         }
         else res.status(406).send({"ERROR": "NO ACCESS"});
     });
@@ -170,6 +181,22 @@ router.post('/getBeats', function(req, res) {
         }
       });
     }
+  });
+});
+
+router.post('/getShortTokens', function(req, res) {
+  if(!req.body) return res.send(400);
+  const payload = {
+  };
+  var token = jwt.sign(payload, "secretbeats", {
+    expiresIn: "1h"
+  });
+  var tokenLong = jwt.sign(payload, "secretbeatslong", {
+    expiresIn: "3h"
+  });
+  res.json({
+    token: token,
+    tokenLong: tokenLong
   });
 });
 module.exports = router;
