@@ -23,10 +23,12 @@ var beatSchema = mongoose.Schema({
   songRelationName: String,
   plays: Number,
   rating: Number,
+  ratings: Number,
   createdBy: String
 });
 
 var Beat = mongoose.model("Beat", beatSchema);
+var User = mongoose.model("User");
 
 router.post('/newBeat', function(req, res) {
   if(!req.body) return res.send(400);
@@ -47,6 +49,7 @@ router.post('/newBeat', function(req, res) {
         songRelationName: req.body["songRelationName"],
         plays: 0,
         rating: -1,
+        ratings: 0,
         createdBy: req.body["createdBy"]
       });
       newBeat.save(function(error, point) {
@@ -155,6 +158,65 @@ router.post('/beatsBySong', function(req, res) {
         else {
           var beatNameArray = [];
           res.json({"results": beats, "amount": beats.length});
+        }
+      });
+    }
+  });
+});
+
+router.post('/updateRating', function(req, res) {
+  if(!req.body) return res.send(400);
+  jwt.verify(req.body["token"], "secretbeats", function(err, decoded) {
+    if(err){
+        res.send(406);
+        //KICK TO LOGIN
+    }
+    else {
+      Beat.findOne({name: req.body["name"]}, function(error, beat) {
+        if(beat != null) {
+          if(beat.rating == -1) {
+            beat.rating = req.body["rating"];
+          }
+          else {
+            beat.rating = (beat.rating * beat.ratings + req.body["rating"]) / (beat.ratings + 1);
+          }
+          beat.ratings = beat.ratings + 1;
+          beat.save(function(saveError, point) {
+            if(error) {
+              res.send(500);
+            }
+            else {
+              res.json(point);
+            }
+          });
+        }
+      });
+    }
+  });
+});
+
+router.post('/deleteByName', function(req, res) {
+  if(!req.body) return res.send(400);
+  jwt.verify(req.body["token"], "secretbeats", function(err, decoded) {
+    if(err){
+        res.send(406);
+        //KICK TO LOGIN
+    }
+    else {
+      Beat.findOneAndRemove({name: req.body["name"]}, function(error, beat) {
+        if(beat != null) {
+          User.findOne({name: req.body["username"]}, function(userError, user) {
+            var index = user.beats.indexOf(beat.name);
+            if(index != -1) user.beats.splice(index, 1);
+            user.save(function(saveError, point) {
+              if(saveError == null) {
+                res.json({"SUCCESS": true});
+              }
+            });
+          });
+        }
+        else {
+          res.sendStatus(500);
         }
       });
     }

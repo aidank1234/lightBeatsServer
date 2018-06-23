@@ -147,4 +147,32 @@ router.post('/startSession', function(req, res) {
 
   });
 });
+
+router.post('/deleteSession', function(req, res) {
+  if(!req.body) return res.send(400);
+  jwt.verify(req.body["token"], "secretbeats", function(err, decoded) {
+    if(err){
+        res.send(406);
+        //KICK TO LOGIN
+    }
+    else {
+      Session.findOne({code: req.body["code"]}, function(error, session) {
+        if(session != null) {
+          session.code = 123456789;
+          session.save(function(sessionError, point) {
+            if(sessionError == null) {
+              res.json(point);
+            }
+            else {
+              res.sendStatus(500);
+            }
+          });
+        }
+        else {
+          res.sendStatus(500);
+        }
+      });
+    }
+  });
+});
 module.exports = router;
