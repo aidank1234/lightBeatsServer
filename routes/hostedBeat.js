@@ -148,6 +148,26 @@ router.post('/startSession', function(req, res) {
   });
 });
 
+router.post('/checkSubscribers', function(req, res) {
+  if(!req.body) return res.send(400);
+  jwt.verify(req.body["token"], "secretbeats", function(err, decoded) {
+    if(err){
+        res.send(406);
+        //KICK TO LOGIN
+    }
+    else {
+      Session.findOne({code: req.body["code"]}, function(error, session) {
+        if(session != null) {
+          res.json(session);
+        }
+        else {
+          res.sendStatus(500);
+        }
+      });
+    }
+  });
+});
+
 router.post('/deleteSession', function(req, res) {
   if(!req.body) return res.send(400);
   jwt.verify(req.body["token"], "secretbeats", function(err, decoded) {

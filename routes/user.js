@@ -15,10 +15,16 @@ mongoose.connect('mongodb://localhost/my_db');
 
 var userSchema = mongoose.Schema({
   username: String,
+  datedCreated: Number,
   email: String,
   password: String,
   beats: [String]
 });
+
+function seconds_since_epoch() {
+  var d = Math.floor(Date.now() / 1000);
+  return d;
+}
 
 var User = mongoose.model("User", userSchema);
 
@@ -28,6 +34,8 @@ router.post('/createUser', function(req, res){
   var newUser = new User({
     username: req.body["username"],
     email: req.body["email"],
+    beats: [],
+    datedCreated: seconds_since_epoch(),
     password: hashedPassword
   });
   newUser.save(function(err, point){
