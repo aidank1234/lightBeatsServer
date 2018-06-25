@@ -210,7 +210,7 @@ router.post('/deleteByName', function(req, res) {
       Beat.findOneAndRemove({name: req.body["name"]}, function(error, beat) {
         if(error == null) {
           User.findOne({name: req.body["username"]}, function(userError, user) {
-            remove(user.beats, beat.name);
+            remove(user.beats, req.body["name"]);
             user.save(function(saveError, point) {
               if(saveError == null) {
                 res.json({"SUCCESS": true});
