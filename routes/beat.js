@@ -195,6 +195,10 @@ router.post('/updateRating', function(req, res) {
   });
 });
 
+function remove(array, element) {
+    return array.filter(e => e !== element);
+}
+
 router.post('/deleteByName', function(req, res) {
   if(!req.body) return res.send(400);
   jwt.verify(req.body["token"], "secretbeats", function(err, decoded) {
@@ -206,8 +210,7 @@ router.post('/deleteByName', function(req, res) {
       Beat.findOneAndRemove({name: req.body["name"]}, function(error, beat) {
         if(beat != null) {
           User.findOne({name: req.body["username"]}, function(userError, user) {
-            var index = user.beats.indexOf(beat.name);
-            if(index != -1) user.beats.splice(index, 1);
+            remove(user.beats, beat.name);
             user.save(function(saveError, point) {
               if(saveError == null) {
                 res.json({"SUCCESS": true});
