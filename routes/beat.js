@@ -117,7 +117,7 @@ router.post('/beatNameQuery', function(req, res) {
           else {
             res.json(beat);
           }
-      })
+      }).limit(8);
     }
   });
 });
