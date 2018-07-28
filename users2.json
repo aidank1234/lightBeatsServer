@@ -1,0 +1,265 @@
+{
+	"_id": {
+		"$oid": "5b3091d9e7b3580e3aab5906"
+	},
+	"beats": [],
+	"username": "aidan",
+	"email": "aidan.kaiser@comcast.net",
+	"datedCreated": 1529909721,
+	"password": "sha1$87600e36$1$66c9f82af696529a227eddefaff03d2c6885d556",
+	"__v": 24
+}
+{
+	"_id": {
+		"$oid": "5b30faf6f9ed780e49a67ac4"
+	},
+	"beats": [
+		"First try",
+		"Let it be 1"
+	],
+	"username": "Kkaiser",
+	"email": "keith.kaiser@comcast.net",
+	"datedCreated": 1529936630,
+	"password": "sha1$4047f99b$1$ca99b4fe8ae4fcca358e2e17cfd7f8f5d25333f2",
+	"__v": 10
+}
+{
+	"_id": {
+		"$oid": "5b327ac1f9ed780e49a67ade"
+	},
+	"beats": [
+		"Lights Out Full",
+		"Dreams and Nightmares Full",
+		"Iced Out Full",
+		"The City Full",
+		"The Reason Full",
+		"Whole Heart Full"
+	],
+	"username": "LightBeatsLLC",
+	"email": "apkaiser@wisc.edu",
+	"datedCreated": 1530034881,
+	"password": "sha1$41cd13cc$1$90f83518103367af920e7a19ccb50b3669396ca2",
+	"__v": 24
+}
+{
+	"_id": {
+		"$oid": "5b4cf04357bf743e2a1e7ff3"
+	},
+	"beats": [],
+	"username": "natalie",
+	"email": "nvera27@yahoo.com",
+	"datedCreated": 1531768899,
+	"password": "sha1$1f34a909$1$e41e8e8d95631021563819ae06a8ec4586892127",
+	"__v": 2
+}
+{
+	"_id": {
+		"$oid": "5b53d2ff57bf743e2a1e8012"
+	},
+	"beats": [
+		"Let it be 2",
+		"Let it be 3"
+	],
+	"username": "kkaiser",
+	"email": "keith.ka@comcast.net",
+	"datedCreated": 1532220159,
+	"password": "sha1$c316b5ab$1$f0181bac9b3d1c315eb65b4dc974138a11db06a4",
+	"__v": 2
+}
+{
+	"_id": {
+		"$oid": "5b57a7fa57bf743e2a1e801a"
+	},
+	"beats": [
+		"Strobe Test"
+	],
+	"username": "applereviewer",
+	"email": "apkaiser@wisc.edu",
+	"datedCreated": 1532471290,
+	"password": "sha1$edb0bb4f$1$9c2b7715b2b958898e46a5c57e5d73ba78254571",
+	"__v": 3
+}
+{
+	"_id": {
+		"$oid": "5b58d89b57bf743e2a1e8022"
+	},
+	"beats": [
+		"Abc"
+	],
+	"username": "abc",
+	"email": "abc@mail.com",
+	"datedCreated": 1532549275,
+	"password": "sha1$498fc11f$1$ed9644742fb9cc92ab7ec8f2707c2685cec54955",
+	"__v": 1
+}
+{
+	"_id": {
+		"$oid": "5b592c3857bf743e2a1e8026"
+	},
+	"beats": [
+		"Meg Hows 1st Beat DAB"
+	],
+	"username": "meganhoward",
+	"email": "meg.how99@gmail.com",
+	"datedCreated": 1532570680,
+	"password": "sha1$c710c58f$1$f1b2c318f876229660f301b10b716c481e3c2eb0",
+	"__v": 1
+}
+{
+	"_id": {
+		"$oid": "5b592c4757bf743e2a1e8027"
+	},
+	"beats": [],
+	"username": "kneedham4",
+	"email": "kathleen.needham@hotmail.com",
+	"datedCreated": 1532570695,
+	"password": "sha1$36acfd89$1$9e7276da01c489bf8bf78f016eb2c3946d4d2142",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5b59337557bf743e2a1e8028"
+	},
+	"beats": [],
+	"username": "grace",
+	"email": "gkhoward@wpi.edu",
+	"datedCreated": 1532572533,
+	"password": "sha1$e7117448$1$4ed98ba42190ec4f319dd4d5bdf016b940d95025",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5b59381a57bf743e2a1e8029"
+	},
+	"beats": [],
+	"username": "emily",
+	"email": "emilymaevehoward@gmail.com",
+	"datedCreated": 1532573722,
+	"password": "sha1$57ea5211$1$665b63df14ae156258625971724afd6ed3fe3954",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5b594bf457bf743e2a1e802a"
+	},
+	"beats": [],
+	"username": "AidanIsGay",
+	"email": "reganben94@gmail.com",
+	"datedCreated": 1532578804,
+	"password": "sha1$b5cd961c$1$2b936075c74f18401d8acffff554321ec119a62d",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5b594c2357bf743e2a1e802b"
+	},
+	"beats": [],
+	"username": "labarrasucks1",
+	"email": "chisox2427@gmail.com",
+	"datedCreated": 1532578851,
+	"password": "sha1$62bb79cf$1$529f2b08904f1800a74f4bd40969d86d267cd7f6",
+	"__v": 2
+}
+{
+	"_id": {
+		"$oid": "5b594c3f57bf743e2a1e802d"
+	},
+	"beats": [
+		"The city"
+	],
+	"username": "durks",
+	"email": "jackdurkin53@gmail.con",
+	"datedCreated": 1532578879,
+	"password": "sha1$c514ae43$1$ac483da78085295ee7d93151c3f160d2162ca115",
+	"__v": 1
+}
+{
+	"_id": {
+		"$oid": "5b5a3fb457bf743e2a1e8053"
+	},
+	"beats": [],
+	"username": "ThaDietz",
+	"email": "dieterhanz@aol.com",
+	"datedCreated": 1532641204,
+	"password": "sha1$efacec4c$1$4d075661a7d7c0d99e097fe852da8c868962b19f",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5b5a501957bf743e2a1e8056"
+	},
+	"beats": [],
+	"username": "frothyryan",
+	"email": "turtleman866@gmail.com",
+	"datedCreated": 1532645401,
+	"password": "sha1$61b59b92$1$b00560af64101e30eea5c6fa0215c91a162ae86b",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5b5a803557bf743e2a1e8057"
+	},
+	"beats": [],
+	"username": "kneedham",
+	"email": "kathleen.needham@hotmail.com",
+	"datedCreated": 1532657717,
+	"password": "sha1$4459659e$1$18b1efca683a37f396aca41cdff2046ea176bcc8",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5b5b433557bf743e2a1e805d"
+	},
+	"beats": [],
+	"username": "domeierj",
+	"email": "jackdomeier@yahoo.com",
+	"datedCreated": 1532707637,
+	"password": "sha1$322161b2$1$e14516d66d04d30ec8bc5b7308c8b4066bb23525",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5b5b55ab57bf743e2a1e805e"
+	},
+	"beats": [],
+	"username": "deeznuts",
+	"email": "kakadhinho@gmail.com",
+	"datedCreated": 1532712363,
+	"password": "sha1$0c5ff5d8$1$965cc7931f3af3c450a3205698b036f76e4925a4",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5b5bd9f98438b612862667a7"
+	},
+	"beats": [],
+	"username": "jmiecz2",
+	"email": "jmiecz25@gmail.com",
+	"datedCreated": 1532746233,
+	"password": "sha1$1a2e0d73$1$7015952d777ded8ca02750cb835ba226a0c852ab",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5b5bf6cd8438b612862667ab"
+	},
+	"beats": [
+		"Freesol"
+	],
+	"username": "ajiang52",
+	"email": "ajiang52@yahoo.com",
+	"datedCreated": 1532753613,
+	"password": "sha1$ee69f3df$1$9721f979c29a7b2ee034edfdba217146b489176e",
+	"__v": 5
+}
+{
+	"_id": {
+		"$oid": "5b5c7cab8438b612862667c1"
+	},
+	"beats": [],
+	"username": "young pimp",
+	"email": "danielgreeson22@gmail.com",
+	"datedCreated": 1532787883,
+	"password": "sha1$9524e4d2$1$2af750753d8b5fdc4a342a1e1e5ff00c18421533",
+	"__v": 0
+}
