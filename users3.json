@@ -333,3 +333,60 @@
 	"password": "sha1$d86ff489$1$2148fc787679c26e37179a8a875b32c9d5c0ace4",
 	"__v": 0
 }
+{
+	"_id": {
+		"$oid": "5b5e1f918438b612862667dc"
+	},
+	"beats": [],
+	"username": "dbethea",
+	"email": "betheadaveon123@gmail.com",
+	"datedCreated": 1532895121,
+	"password": "sha1$9812351e$1$faeb57dc41a1593bf6482f7382216e43dae3074c",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5b5e6ff88438b612862667df"
+	},
+	"beats": [],
+	"username": "pcronert",
+	"email": "pcronert@yahoo.com",
+	"datedCreated": 1532915704,
+	"password": "sha1$b9a1e18a$1$abef38f6e60e56d15f44df91da8e5fb076461e6a",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5b5f2cfa8438b612862667e0"
+	},
+	"beats": [],
+	"username": "simon.leenaers",
+	"email": "simon.leenaers@gmail.com",
+	"datedCreated": 1532964090,
+	"password": "sha1$2a75d035$1$321b8e7222388b83157109cfb89c9e72ee9c00a9",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5b5f49798438b612862667e1"
+	},
+	"beats": [
+		"Aaaa"
+	],
+	"username": "YoungHuncho",
+	"email": "rashadnickelson670@gmail.com",
+	"datedCreated": 1532971385,
+	"password": "sha1$e247d3ee$1$c00ea2707ebc0c273615f6a4baef32dd841822b2",
+	"__v": 1
+}
+{
+	"_id": {
+		"$oid": "5b5f6cf98438b612862667e4"
+	},
+	"beats": [],
+	"username": "Sowned Wayvzz",
+	"email": "slothifygaming@gmail.com",
+	"datedCreated": 1532980473,
+	"password": "sha1$a3393cb3$1$7f85e0d6edf944d34a41cd0f6e9b30bc7ef4019e",
+	"__v": 0
+}
