@@ -9,6 +9,7 @@ var bodyParser = require('body-parser')
 router.use(bodyParser.json({limit: '50MB', type: 'application/json'}));
 router.use(bodyParser.urlencoded({extended: true, limit: '50mb'}));
 
+// FUCK JOE
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/my_db');
 
